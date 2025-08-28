@@ -321,8 +321,13 @@ I am passionate, creatives and believe success occurs at the intersection of tal
                 <p class="text-gray-300 text-center mb-6">
                     Feel free to reach out with any questions or collaboration ideas.
                 </p>
-                <!-- Form element, modified for JavaScript handling -->
-                <form id="contact-form">
+                <!--
+                    The form now uses FormSubmit.co.
+                    The 'action' attribute sends the form data to your email.
+                    You will need to activate the form by clicking a confirmation link
+                    sent to your email address the first time you submit the form.
+                -->
+                <form action="https://formsubmit.co/Denis@deniswilliams.com" method="POST">
                     <div class="mb-4">
                         <label for="name" class="block text-gray-300 font-medium mb-2">Name</label>
                         <input type="text" id="name" name="name" class="w-full bg-gray-700 text-gray-100 border border-gray-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500">
