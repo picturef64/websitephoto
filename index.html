@@ -24,6 +24,34 @@
             color: #d1d5db; /* A lighter gray for the active link */
             border-bottom: 2px solid #d1d5db;
         }
+
+        /* Masonry-like grid styling for the gallery */
+        /* This creates a fluid, responsive layout that handles images of different sizes gracefully */
+        .gallery-grid {
+            column-count: 1;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 640px) { /* sm */
+            .gallery-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 768px) { /* md */
+            .gallery-grid {
+                column-count: 3;
+            }
+        }
+        @media (min-width: 1024px) { /* lg */
+            .gallery-grid {
+                column-count: 4;
+            }
+        }
+        /* Style to prevent breaks inside grid items */
+        .gallery-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 1.5rem;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -77,42 +105,43 @@
         <!-- Gallery Page Section -->
         <section id="gallery-page" class="page-section hidden">
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-gray-100">My Work</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Gallery Item 1 -->
-                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                    <img src="https://picturef64.github.io/websitephoto/8x100229.jpg" alt="A photo of a sunset over the city" class="w-full h-40 object-cover">
+            <!-- Updated to use a masonry-style grid for better handling of different aspect ratios -->
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 (Landscape) -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <img src="https://picturef64.github.io/websitephoto/8x100229.jpg" alt="A photo of a sunset over the city" class="w-full">
                     <div class="p-4 bg-gray-800">
-                        <h3 class="font-semibold text-lg text-gray-100">New Gallery Photo</h3>
-                        <p class="text-gray-400 text-sm">A collection of beautiful landscapes.</p>
+                        <h3 class="font-semibold text-lg text-gray-100">Landscape View</h3>
+                        <p class="text-gray-400 text-sm">A cityscape at sunset.</p>
                     </div>
                 </div>
-                <!-- Gallery Item 2 -->
-                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/1f2937/d1d5db?text=Portraits" alt="Portrait photography" class="w-full h-40 object-cover">
+                <!-- Gallery Item 2 (Placeholder Landscape) -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <img src="https://placehold.co/800x600/1f2937/d1d5db?text=Landscape+Placeholder" alt="A placeholder for a landscape photo" class="w-full">
                     <div class="p-4 bg-gray-800">
                         <h3 class="font-semibold text-lg text-gray-100">Portraits</h3>
                         <p class="text-gray-400 text-sm">Capturing the essence of people.</p>
                     </div>
                 </div>
-                <!-- Gallery Item 3 -->
-                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/1f2937/d1d5db?text=Urban" alt="Urban photography" class="w-full h-40 object-cover">
+                <!-- Gallery Item 3 (Placeholder Portrait) -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <img src="https://placehold.co/600x800/1f2937/d1d5db?text=Portrait+Placeholder" alt="A placeholder for a portrait photo" class="w-full">
                     <div class="p-4 bg-gray-800">
                         <h3 class="font-semibold text-lg text-gray-100">Urban</h3>
                         <p class="text-gray-400 text-sm">The pulse of the city.</p>
                     </div>
                 </div>
-                <!-- Gallery Item 4 -->
-                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                    <img src="https://placehold.co/600x400/1f2937/d1d5db?text=Wildlife" alt="Wildlife photography" class="w-full h-40 object-cover">
+                <!-- Gallery Item 4 (Placeholder Landscape) -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <img src="https://placehold.co/800x600/1f2937/d1d5db?text=Wildlife+Placeholder" alt="A placeholder for a landscape photo" class="w-full">
                     <div class="p-4 bg-gray-800">
                         <h3 class="font-semibold text-lg text-gray-100">Wildlife</h3>
                         <p class="text-gray-400 text-sm">Unseen moments in nature.</p>
                     </div>
                 </div>
-                <!-- New Gallery Item using your new photo -->
-                <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
-                    <img src="https://picturef64.github.io/websitephoto/8x100229.jpg" alt="A new photo for the gallery" class="w-full h-40 object-cover">
+                <!-- New Gallery Item using your new photo (Landscape) -->
+                <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <img src="https://picturef64.github.io/websitephoto/8x100229.jpg" alt="A new photo for the gallery" class="w-full">
                     <div class="p-4 bg-gray-800">
                         <h3 class="font-semibold text-lg text-gray-100">New Gallery Photo</h3>
                         <p class="text-gray-400 text-sm">A new photo added to the gallery.</p>
