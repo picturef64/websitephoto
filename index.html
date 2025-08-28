@@ -198,13 +198,15 @@ I am passionate, creatives and believe success occurs at the intersection of tal
         </section>
 
         <!-- Contact Page Section -->
+     
         <section id="contact-page" class="page-section hidden">
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-gray-100">Get In Touch</h2>
             <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-2xl shadow-xl">
                 <p class="text-gray-300 text-center mb-6">
                     Feel free to reach out with any questions or collaboration ideas.
                 </p>
-                <form action="#" method="POST">
+                <!-- Form element, modified for JavaScript handling -->
+                <form id="contact-form">
                     <div class="mb-4">
                         <label for="name" class="block text-gray-300 font-medium mb-2">Name</label>
                         <input type="text" id="name" name="name" class="w-full bg-gray-700 text-gray-100 border border-gray-600 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-500">
@@ -220,8 +222,18 @@ I am passionate, creatives and believe success occurs at the intersection of tal
                     <button type="submit" class="w-full bg-gray-700 text-gray-100 py-3 rounded-full font-bold shadow-md hover:bg-gray-600 transition-all">
                         Send Message
                     </button>
-                    </button>
                 </form>
+                
+                <!-- Added a section for direct contact information -->
+                <div class="mt-8 text-center border-t border-gray-700 pt-6">
+                    <p class="text-gray-300 mb-2 font-semibold">Or contact me directly:</p>
+                    <a href="tel:954-834-3611" class="text-blue-400 hover:underline transition-all block mb-2">
+                        Phone: 954-834-3611
+                    </a>
+                    <a href="mailto:Denis@deniswilliams.com" class="text-blue-400 hover:underline transition-all block">
+                        Email: Denis@deniswilliams.com
+                    </a>
+                </div>
             </div>
         </section>
 
