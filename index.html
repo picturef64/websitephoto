@@ -52,6 +52,19 @@
             width: 100%;
             margin-bottom: 1.5rem;
         }
+        /* Style for the confirmation message box */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            background-color: #1f2937;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-200">
@@ -108,6 +121,14 @@
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-gray-100">Recent Work</h2>
             <!-- You can use the same masonry grid style for the recent work page -->
             <div class="gallery-grid">
+                <!-- New photo from the user with a new link -->
+                <a href="https://photos.app.goo.gl/oxJMUCMorjXAZSvW8" target="_blank" class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                    <img src="https://placehold.co/800x600/a2d2ff/000000?text=Recent+Event+Photos" alt="A photo from a recent event" class="w-full">
+                    <div class="p-4 bg-gray-800">
+                        <h3 class="font-semibold text-lg text-gray-100">Client Event Photography</h3>
+                        <p class="text-gray-400 text-sm">Photos from a recent corporate event.</p>
+                    </div>
+                </a>
                 <!-- New photo from the user -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
                     <img src="https://picturef64.github.io/websitephoto/8x100229.jpg" alt="A photo of a sunset over the city" class="w-full">
@@ -145,35 +166,31 @@
                 <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
                     <img src="https://picturef64.github.io/websitephoto/8x100229.jpg" alt="A photo of a sunset over the city" class="w-full">
                     <div class="p-4 bg-gray-800">
-                         <!-- <h3 class="font-semibold text-lg text-gray-100">Landscape View</h3>
-                        <p class="text-gray-400 text-sm">A cityscape at sunset.</p>-->
+                        <!-- Removed titles and descriptions from gallery items as requested -->
                     </div>
                 </div>
                 <!-- Gallery Item 2 (Placeholder Landscape) -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
                     <img src="https://picturef64.github.io/websitephoto/4a1e61d5aba4d.jpg" alt="A placeholder for a landscape photo" class="w-full">
                     <div class="p-4 bg-gray-800">
-                        <!--  <h3 class="font-semibold text-lg text-gray-100">Portraits</h3>
-                        <p class="text-gray-400 text-sm">Capturing the essence of people.</p>-->
+                        <!-- Removed titles and descriptions from gallery items as requested -->
                     </div>
                 </div>
                 <!-- Gallery Item 3 (Placeholder Portrait) -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
                     <img src="https://picturef64.github.io/websitephoto/deniswilliams1.jpg" alt="A placeholder for a portrait photo" class="w-full">
                     <div class="p-4 bg-gray-800">
-                        <!--  <h3 class="font-semibold text-lg text-gray-100">Urban</h3>
-                        <p class="text-gray-400 text-sm">The pulse of the city.</p>-->
+                        <!-- Removed titles and descriptions from gallery items as requested -->
                     </div>
                 </div>
                 <!-- Gallery Item 4 (Placeholder Landscape) -->
                 <div class="gallery-item rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
                     <img src="https://picturef64.github.io/websitephoto/fpprint3052.jpg" alt="A placeholder for a landscape photo" class="w-full">
                     <div class="p-4 bg-gray-800">
-                       <!--   <h3 class="font-semibold text-lg text-gray-100">Wildlife</h3>
-                        <p class="text-gray-400 text-sm">Unseen moments in nature.</p>-->
+                        <!-- Removed titles and descriptions from gallery items as requested -->
                     </div>
                 </div>
-             
+              
                 <!-- More gallery items can be added here -->
             </div>
         </section>
@@ -198,7 +215,6 @@ I am passionate, creatives and believe success occurs at the intersection of tal
         </section>
 
         <!-- Contact Page Section -->
-     
         <section id="contact-page" class="page-section hidden">
             <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 text-gray-100">Get In Touch</h2>
             <div class="max-w-xl mx-auto bg-gray-800 p-8 rounded-2xl shadow-xl">
@@ -244,11 +260,12 @@ I am passionate, creatives and believe success occurs at the intersection of tal
         <p>&copy; 2025 Luminous Frames. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Page Navigation -->
+    <!-- JavaScript for Page Navigation and Contact Form -->
     <script>
         // Get all navigation links and page sections
         const navLinks = document.querySelectorAll('.nav-link');
         const pages = document.querySelectorAll('.page-section');
+        const contactForm = document.getElementById('contact-form');
 
         // Function to show a specific page
         function showPage(pageId) {
@@ -283,6 +300,25 @@ I am passionate, creatives and believe success occurs at the intersection of tal
                 // Show the corresponding page
                 showPage(pageId);
             });
+        });
+
+        // Add a submit event listener to the contact form
+        contactForm.addEventListener('submit', (event) => {
+            // Prevent the default form submission that causes a page reload
+            event.preventDefault();
+
+            // Create and show a simple confirmation message box
+            const messageBox = document.createElement('div');
+            messageBox.className = 'message-box';
+            messageBox.innerHTML = `
+                <p class="text-xl text-white font-bold mb-4">Message Sent!</p>
+                <p class="text-gray-300 mb-6">Thank you for your message. I'll get back to you shortly.</p>
+                <button onclick="this.parentNode.remove()" class="bg-gray-700 text-white px-6 py-2 rounded-full font-bold hover:bg-gray-600">Close</button>
+            `;
+            document.body.appendChild(messageBox);
+            
+            // Clear the form fields after showing the message
+            contactForm.reset();
         });
 
         // Show the initial page based on the URL hash or default to home
